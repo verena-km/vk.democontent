@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="vk.democontent">
+
+ <!-- -*- extra stuff goes here -*- -->
+
+  <browser:page
+    name="add-content-view"
+    for="*"
+    class=".add_content_view.AddContentView"
+    template="add_content_view.pt"
+    permission="zope2.View"
+    layer="vk.democontent.interfaces.IVkDemocontentLayer"
+    />
+
+</configure>
