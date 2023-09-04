@@ -8,10 +8,10 @@
 
   <browser:page
     name="add-content-view"
-    for="*"
+    for="Products.CMFCore.interfaces.IFolderish"
     class=".add_content_view.AddContentView"
     template="add_content_view.pt"
-    permission="zope2.View"
+    permission="cmf.ManagePortal"
     layer="vk.democontent.interfaces.IVkDemocontentLayer"
     />
 

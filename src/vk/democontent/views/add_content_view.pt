@@ -7,27 +7,40 @@
 <body>
 
   <metal:custom_title fill-slot="content-title">
-    <h1 tal:replace="structure context/@@title" />
-
-    <!-- @@title view template: -->
-    <!--
-    <h1 tal:define="title context/Title" tal:condition="title" tal:content="title">
-      Title or id
-    </h1>
-    -->
+    <h1> Testinhalte erzeugen </h1>
 
   </metal:custom_title>
 
   <metal:custom_description fill-slot="content-description">
-    <p tal:replace="structure context/@@description" />
+    <p> Erzeuge Inhalte für Testzwecke </p>
   </metal:custom_description>
 
   <metal:content-core fill-slot="content-core">
   <metal:block define-macro="content-core">
 
-    <h2>Main content</h2>
-    <!--<div tal:replace="view/my_custom_view_method" />-->
-    <!--<div tal:replace="context/my_custom_field" />-->
+    <form method="post" action="" tal:attributes="action string:${context/absolute_url}/${view/__name__}">
+
+
+      <label for="number_of_documents">Anzahl Seiten:</label>
+      <input type="text" name="number_of_documents" id="number_of_documents" value="0"/>
+
+      <label for="number_of_pdf">Anzahl PDF:</label>
+      <input type="text" name="number_of_pdf" id="number_of_pdf" value="0"/>
+
+      <label for="number_of_docx">Anzahl DOCX:</label>
+      <input type="text" name="number_of_docx" id="number_of_docx" value="0"/>
+
+      <label for="number_of_xlsx">Anzahl XLSX:</label>
+      <input type="text" name="number_of_xlsx" id="number_of_xlsx" value="0"/>
+
+      <label for="number_of_jpeg">Anzahl JPG:</label>
+      <input type="text" name="number_of_jpeg" id="number_of_jpeg" value="0"/>
+
+
+      <input type="submit" value="Inhalte erstellen" />
+
+    </form>
+
 
   </metal:block>
   </metal:content-core>
