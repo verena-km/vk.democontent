@@ -24,17 +24,17 @@ The following content types can be generated:
 - Image
 
 This Addon uses ``lorem``, ``reportlab``, ``python-docx`` and ``XlsWriter`` and the
-generman wordlist ``wortliste.txt`` from https://codeberg.org/davidak/wortliste/src/branch/master/wortliste.txt
+german wordlist ``wortliste.txt`` from https://codeberg.org/davidak/wortliste/src/branch/master/wortliste.txt
 
 
 Usage
 --------
 
-If you have admin permission you will find an object action `Beispielinhalte hinzufügen` in every folderish object.
+If you have admin permission, you will find an object action ``Beispielinhalte hinzufügen`` in every folderish object.
 Select the number of elements to add for each content type. For folders you can define the maximal depth for the nested
 folders.
 
-The content will be randomly in the new subfolders
+The content will be randomly created in the current folder and in the new subfolders.
 
 Translations
 ------------
@@ -44,6 +44,9 @@ TODO
 Installation
 ------------
 
+TODO: put on PyPI or in collective
+
+(((
 Install vk.democontent by adding it to your buildout::
 
     [buildout]
@@ -55,7 +58,7 @@ Install vk.democontent by adding it to your buildout::
 
 
 and then running ``bin/buildout``
-
+)))
 
 Authors
 -------
