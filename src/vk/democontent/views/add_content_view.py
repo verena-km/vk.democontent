@@ -9,7 +9,7 @@ import lorem
 from lorem.text import TextLorem
 from plone.app.textfield import RichTextValue
 import pkg_resources
-from random import choices, randrange
+from random import choice, choices, randrange
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from io import BytesIO
@@ -38,6 +38,9 @@ class AddContentView(BrowserView):
 #        portal = api.portal.get()
 #        obj = api.content.create(type='Document',title='My Content', container=portal)
 
+        # Folderliste zur Platzierung der Inhalte (standardmäßig nur der aktuelle Ordner)
+        self.folder_list = [self.context,]
+
         # Wenn das Formular gesendet wurde
         if self.request.method == 'POST':
             self.number_of_documents = int(self.request.get('number_of_documents', ''))
@@ -48,7 +51,7 @@ class AddContentView(BrowserView):
             self.number_of_xlsx = int(self.request.get('number_of_xlsx', ''))
             self.number_of_jpeg = int(self.request.get('number_of_jpeg', ''))
             self.number_of_folders = int(self.request.get('number_of_folders', ''))
-            self.folder_depth = int(self.request.get('folder_depth', ''))
+            self.max_folder_depth = int(self.request.get('max_folder_depth', ''))
 
 
             self.create_folders()
@@ -59,13 +62,26 @@ class AddContentView(BrowserView):
             self.create_contents( self.number_of_docx, 'File', 'docx')
             self.create_contents( self.number_of_xlsx, 'File', 'xlsx')
             self.create_contents( self.number_of_docx, 'Image')
+
+
         return self.index()
 
 
-    # def create_folders(self):
-    #     self.subfolder_list = []
-    #     while self.subfolder_list.len() < self.number_of_folders:
-    #         folder = self.create_content('Folder')
+    def create_folders(self):
+
+        while len(self.folder_list) - 1 < self.number_of_folders:
+            # select random container in max folder_depth
+            container = choice(self.folder_list)
+            # ist maximale Tiefe erreicht?
+            depth = len(container.getPhysicalPath()) - len(self.context.getPhysicalPath())
+            while depth > self.max_folder_depth:
+                # dann anderen Folder wählen
+                container = choice(self.folder_list)
+                depth = len(container.getPhysicalPath()) - len(self.context.getPhysicalPath())
+            # Folder erzeugen
+            folder = self.create_content('Folder', container = container)
+            # an Liste anhängen
+            self.folder_list.append(folder)
 
 
     def get_random_words(self,count=10):
@@ -78,7 +94,8 @@ class AddContentView(BrowserView):
 
     def create_contents(self, number, type, subtype = None):
         for i in range(number):
-            self.create_content(type, subtype)
+            container = choice(self.folder_list)
+            self.create_content(type, subtype, container)
 
     def create_richtextvalue(self, words_to_use):
         return RichTextValue(raw='<p>'+ TextLorem(psep='</p> \n\n <p>', words = words_to_use).text() +' </p>', mimeType ='text/html', outputMimeType = 'text/x-html-safe')
@@ -162,14 +179,16 @@ class AddContentView(BrowserView):
         file_name = self.get_random_words(1)[0]+".jpg"
         return NamedBlobImage(data=file_data, contentType = "image/jpeg", filename=file_name)
 
-    def create_content(self, type, subtype = None):
+    def create_content(self, type, subtype = None, container = None):
             words_to_use = self.get_random_words(4000)
             d = {}
             d['type'] = type
             d['title'] = TextLorem(srange=(1,5),ssep='', words = words_to_use).sentence()[:-1] # ohne Punkt
             d['description'] = TextLorem(words = words_to_use).paragraph()
-            d['container'] = self.context
-
+            if container == None:
+                d['container'] = self.context
+            else:
+                d['container'] = container
 
             if type == 'Document':
                 d['text'] = self.create_richtextvalue(words_to_use)

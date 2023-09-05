@@ -45,8 +45,8 @@
       <label for="number_of_folders">Anzahl Ordner:</label>
       <input type="text" name="number_of_folders" id="number_of_folders" value="0"/>
 
-      <label for="folder_depth">Verschachtelungstiefe</label>
-      <input type="text" name="folder_depth" id="folder_depth" value="0"/>
+      <label for="max_folder_depth">Verschachtelungstiefe</label>
+      <input type="text" name="max_folder_depth" id="max_folder_depth" value="0"/>
 
       <input type="submit" value="Inhalte erstellen" />
 
