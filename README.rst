@@ -2,62 +2,43 @@
    If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
    This text does not appear on PyPI or github. It is a comment.
 
-.. image:: https://github.com/collective/vk.democontent/actions/workflows/plone-package.yml/badge.svg
-    :target: https://github.com/collective/vk.democontent/actions/workflows/plone-package.yml
-
-.. image:: https://coveralls.io/repos/github/collective/vk.democontent/badge.svg?branch=main
-    :target: https://coveralls.io/github/collective/vk.democontent?branch=main
-    :alt: Coveralls
-
-.. image:: https://codecov.io/gh/collective/vk.democontent/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/collective/vk.democontent
-
-.. image:: https://img.shields.io/pypi/v/vk.democontent.svg
-    :target: https://pypi.python.org/pypi/vk.democontent/
-    :alt: Latest Version
-
-.. image:: https://img.shields.io/pypi/status/vk.democontent.svg
-    :target: https://pypi.python.org/pypi/vk.democontent
-    :alt: Egg Status
-
-.. image:: https://img.shields.io/pypi/pyversions/vk.democontent.svg?style=plastic   :alt: Supported - Python Versions
-
-.. image:: https://img.shields.io/pypi/l/vk.democontent.svg
-    :target: https://pypi.python.org/pypi/vk.democontent/
-    :alt: License
 
 
 ==============
 vk.democontent
 ==============
 
-Addon for adding test content
+Simple Addon for adding sample content to Plone site for testing purposes.
 
 Features
 --------
+Adds a view to your Plone site for generating sample content in the current folder:
 
-- Can be bullet points
+The following content types can be generated:
+
+- Folder
+- Document
+- News Item
+- Link
+- File (pdf, docx, xlsx)
+- Image
+
+This Addon uses ``lorem``, ``reportlab``, ``python-docx`` and ``XlsWriter`` and the
+generman wordlist ``wortliste.txt`` from https://codeberg.org/davidak/wortliste/src/branch/master/wortliste.txt
 
 
-Examples
+Usage
 --------
 
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
+If you have admin permission you will find an object action `Beispielinhalte hinzufügen` in every folderish object.
+Select the number of elements to add for each content type. For folders you can define the maximal depth for the nested
+folders.
 
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
+The content will be randomly in the new subfolders
 
 Translations
 ------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+TODO
 
 
 Installation
@@ -93,17 +74,13 @@ Put your name here, you deserve it!
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/vk.democontent/issues
-- Source Code: https://github.com/collective/vk.democontent
-- Documentation: https://docs.plone.org/foo/bar
-
+- Issue Tracker: https://github.com/verena-km/vk.democontent/issues
+- Source Code: https://github.com/verena-km/vk.democontent
 
 Support
 -------
 
 If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
-
 
 License
 -------

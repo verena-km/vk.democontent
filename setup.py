@@ -17,7 +17,7 @@ long_description = "\n\n".join(
 setup(
     name="vk.democontent",
     version="1.0a1",
-    description="Addon for adding test content",
+    description="Addon for adding sample content to Plone site for testing purposes",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
     classifiers=[

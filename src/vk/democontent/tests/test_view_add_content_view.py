@@ -23,7 +23,7 @@ class ViewsIntegrationTest(unittest.TestCase):
 
     def test_add_content_view_is_registered(self):
         view = getMultiAdapter(
-            (self.portal["other-folder"], self.portal.REQUEST), name="add-content-view"
+            (self.portal["other-folder"], self.portal.REQUEST), name="add_sample_content"
         )
         self.assertTrue(IAddContentView.providedBy(view))
 
@@ -32,7 +32,7 @@ class ViewsIntegrationTest(unittest.TestCase):
         try:
             view = getMultiAdapter(
                 (self.portal["front-page"], self.portal.REQUEST),
-                name="add-content-view",
+                name="add_sample_content",
             )
         except ComponentLookupError:
             view_found = False
