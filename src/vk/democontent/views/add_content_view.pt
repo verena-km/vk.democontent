@@ -24,6 +24,12 @@
       <label for="number_of_documents">Anzahl Seiten:</label>
       <input type="text" name="number_of_documents" id="number_of_documents" value="0"/>
 
+      <label for="number_of_news_items">Anzahl Nachrichten:</label>
+      <input type="text" name="number_of_news_items" id="number_of_news_items" value="0"/>
+
+      <label for="number_of_links">Anzahl Links:</label>
+      <input type="text" name="number_of_links" id="number_of_links" value="0"/>
+
       <label for="number_of_pdf">Anzahl PDF:</label>
       <input type="text" name="number_of_pdf" id="number_of_pdf" value="0"/>
 
@@ -36,6 +42,11 @@
       <label for="number_of_jpeg">Anzahl JPG:</label>
       <input type="text" name="number_of_jpeg" id="number_of_jpeg" value="0"/>
 
+      <label for="number_of_folders">Anzahl Ordner:</label>
+      <input type="text" name="number_of_folders" id="number_of_folders" value="0"/>
+
+      <label for="folder_depth">Verschachtelungstiefe</label>
+      <input type="text" name="folder_depth" id="folder_depth" value="0"/>
 
       <input type="submit" value="Inhalte erstellen" />
 
