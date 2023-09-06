@@ -26,6 +26,7 @@ The following content types can be generated:
 This Addon uses ``lorem``, ``reportlab``, ``python-docx`` and ``XlsWriter`` and the
 german wordlist ``wortliste.txt`` from https://codeberg.org/davidak/wortliste/src/branch/master/wortliste.txt
 
+It is not intended to be used in a production environment.
 
 Usage
 --------
