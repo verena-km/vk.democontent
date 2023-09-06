@@ -56,7 +56,7 @@ class AddContentView(BrowserView):
 
             self.create_folders()
             self.create_contents(self.number_of_documents, 'Document')
-            self.create_contents(self.number_of_links, 'News Item')
+            self.create_contents(self.number_of_news_items, 'News Item')
             self.create_contents(self.number_of_links, 'Link')
             self.create_contents( self.number_of_pdf, 'File', 'pdf')
             self.create_contents( self.number_of_docx, 'File', 'docx')
