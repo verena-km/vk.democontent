@@ -11,7 +11,7 @@
     for="Products.CMFCore.interfaces.IFolderish"
     class=".add_content_view.AddContentView"
     template="add_content_view.pt"
-    permission="cmf.ManagePortal"
+    permission="cmf.AddPortalContent"
     layer="vk.democontent.interfaces.IVkDemocontentLayer"
     />
 

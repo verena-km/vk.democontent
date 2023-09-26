@@ -9,7 +9,7 @@
    <property name="icon_expr"></property>
    <property name="available_expr">python:context.restrictedTraverse('@@plone_interface_info').provides('Products.CMFCore.interfaces.IFolderish')</property>
    <property name="permissions">
-    <element value="Manage portal"/>
+    <element value="Add portal content"/>
    </property>
    <property name="visible">True</property>
   </object>
