@@ -18,9 +18,8 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from docx import Document
 import xlsxwriter
 from PIL import Image, ImageDraw
+from Products.statusmessages.interfaces import IStatusMessage
 
-
-# from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 
 class IAddContentView(Interface):
@@ -63,6 +62,8 @@ class AddContentView(BrowserView):
             self.create_contents( self.number_of_xlsx, 'File', 'xlsx')
             self.create_contents( self.number_of_docx, 'Image')
 
+            IStatusMessage(self.request).add("Inhalte wurden erzeugt.")
+            self.request.response.redirect(self.context.absolute_url())
 
         return self.index()
 
