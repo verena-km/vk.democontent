@@ -1,59 +1,95 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="vk.democontent"
-      metal:use-macro="context/main_template/macros/master">
-<body>
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="vk.democontent"
+  metal:use-macro="context/main_template/macros/master"
+>
+  <body>
+    <metal:main fill-slot="main">
+      <h1>Testinhalte erzeugen</h1>
 
+      <p>Erzeugt Inhalte innerhalb des aktuellen Ordners</p>
 
+      <form
+        method="post"
+        action=""
+        tal:attributes="action string:${context/absolute_url}/${view/__name__}"
+      >
+        <label for="number_of_documents">Anzahl Seiten:</label>
+        <input
+          type="text"
+          name="number_of_documents"
+          id="number_of_documents"
+          value="0"
+        />
 
-  <metal:main fill-slot="main">
+        <label for="number_of_news_items">Anzahl Nachrichten:</label>
+        <input
+          type="text"
+          name="number_of_news_items"
+          id="number_of_news_items"
+          value="0"
+        />
 
-    <h1> Testinhalte erzeugen </h1>
+        <label for="number_of_links">Anzahl Links:</label>
+        <input
+          type="text"
+          name="number_of_links"
+          id="number_of_links"
+          value="0"
+        />
 
-    <p> Erzeugt Inhalte innerhalb des aktuellen Ordners </p>
+        <label for="number_of_pdf">Anzahl PDF:</label>
+        <input type="text" name="number_of_pdf" id="number_of_pdf" value="0" />
 
-    <form method="post" action="" tal:attributes="action string:${context/absolute_url}/${view/__name__}">
+        <label for="number_of_docx">Anzahl DOCX:</label>
+        <input
+          type="text"
+          name="number_of_docx"
+          id="number_of_docx"
+          value="0"
+        />
 
+        <label for="number_of_xlsx">Anzahl XLSX:</label>
+        <input
+          type="text"
+          name="number_of_xlsx"
+          id="number_of_xlsx"
+          value="0"
+        />
 
-      <label for="number_of_documents">Anzahl Seiten:</label>
-      <input type="text" name="number_of_documents" id="number_of_documents" value="0"/>
+        <label for="number_of_jpeg">Anzahl JPG:</label>
+        <input
+          type="text"
+          name="number_of_jpeg"
+          id="number_of_jpeg"
+          value="0"
+        />
 
-      <label for="number_of_news_items">Anzahl Nachrichten:</label>
-      <input type="text" name="number_of_news_items" id="number_of_news_items" value="0"/>
+        <label for="number_of_folders">Anzahl Ordner:</label>
+        <input
+          type="text"
+          name="number_of_folders"
+          id="number_of_folders"
+          value="0"
+        />
 
-      <label for="number_of_links">Anzahl Links:</label>
-      <input type="text" name="number_of_links" id="number_of_links" value="0"/>
+        <label for="max_folder_depth">Verschachtelungstiefe</label>
+        <input
+          type="text"
+          name="max_folder_depth"
+          id="max_folder_depth"
+          value="0"
+        />
 
-      <label for="number_of_pdf">Anzahl PDF:</label>
-      <input type="text" name="number_of_pdf" id="number_of_pdf" value="0"/>
+        <br />
 
-      <label for="number_of_docx">Anzahl DOCX:</label>
-      <input type="text" name="number_of_docx" id="number_of_docx" value="0"/>
+        <input type="submit" value="Inhalte erstellen" />
 
-      <label for="number_of_xlsx">Anzahl XLSX:</label>
-      <input type="text" name="number_of_xlsx" id="number_of_xlsx" value="0"/>
-
-      <label for="number_of_jpeg">Anzahl JPG:</label>
-      <input type="text" name="number_of_jpeg" id="number_of_jpeg" value="0"/>
-
-      <label for="number_of_folders">Anzahl Ordner:</label>
-      <input type="text" name="number_of_folders" id="number_of_folders" value="0"/>
-
-      <label for="max_folder_depth">Verschachtelungstiefe</label>
-      <input type="text" name="max_folder_depth" id="max_folder_depth" value="0"/>
-
-      <br/>
-      
-      <input type="submit" value="Inhalte erstellen" />
-
-      <br/>
-
-    </form>
-
-
-
-  </metal:main>
-</body>
+        <br />
+      </form>
+    </metal:main>
+  </body>
 </html>
